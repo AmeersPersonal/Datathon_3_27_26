@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 * {
   box-sizing: border-box;
@@ -14,12 +12,22 @@ html {
   scroll-behavior: smooth;
 }
 
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
 body {
   font-family: 'Inter', system-ui, sans-serif;
   background-color: #f8fafc;
   color: #1e293b;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
 }
 
 /* Flip card styles */
