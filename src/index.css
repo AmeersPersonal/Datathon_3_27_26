@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
 @import "tailwindcss";
 
 * {
@@ -26,6 +25,7 @@ body {
 
 #root {
   width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   overflow-x: hidden;
 }
@@ -35,6 +35,8 @@ body {
   perspective: 1000px;
   height: 220px;
   cursor: pointer;
+  /* FIX: Ensure the container itself has some breathing room if used in a grid */
+  margin-bottom: 1rem;
 }
 
 .flip-card-inner {
@@ -52,6 +54,8 @@ body {
 .flip-card-front,
 .flip-card-back {
   position: absolute;
+  /* FIX: Ensure absolute elements fill the container correctly */
+  inset: 0; 
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
@@ -61,8 +65,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* FIX: Increased padding and added overflow-hidden to keep content inside borders */
   padding: 1.5rem;
   text-align: center;
+  overflow: hidden; 
 }
 
 .flip-card-back {

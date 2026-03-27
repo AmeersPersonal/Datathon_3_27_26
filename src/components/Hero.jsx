@@ -7,7 +7,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] pt-16 flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-[#0a2952] via-[#1e4d8c] to-[#133b70]">
+    <section className="relative min-h-[calc(100vh-4rem)] pt-16 flex justify-center items-center overflow-hidden bg-gradient-to-br from-[#0a2952] via-[#1e4d8c] to-[#133b70]">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500 opacity-10 rounded-full blur-3xl" />
@@ -24,7 +24,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 text-center">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}

@@ -54,8 +54,8 @@ const analysisCards = [
 
 export default function DebtCalculator() {
   return (
-    <section id="problem" className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="problem" className="py-24 bg-white flex justify-center">
+      <div className="w-full max-w-6xl mx-auto px-6">
         {/* Executive Summary */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

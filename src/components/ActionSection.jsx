@@ -127,8 +127,8 @@ const citations = [
 
 export default function ActionSection() {
   return (
-    <section id="action" className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="action" className="py-24 bg-white flex justify-center">
+      <div className="w-full max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -184,38 +184,12 @@ export default function ActionSection() {
           })}
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="mt-16 text-center bg-gradient-to-br from-[#0a2952] to-[#1e4d8c] rounded-2xl p-10 text-white"
-        >
-          <div className="text-4xl mb-4">🌱</div>
-          <h3 className="text-2xl font-black mb-3">Financial Literacy Starts Here</h3>
-          <p className="text-blue-200 max-w-xl mx-auto mb-6">
-            Financial literacy isn&apos;t about having more money — it&apos;s about making better decisions
-            with what you have, knowing your rights, and accessing the resources available to you.
-            Start with one resource today.
-          </p>
-          <a
-            href="https://www1.nyc.gov/site/dca/consumers/financial-empowerment-centers.page"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-full transition-all duration-300 hover:scale-105"
-          >
-            Get Free Financial Counseling
-            <ExternalLink size={16} />
-          </a>
-        </motion.div>
-
         {/* Citations */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.5 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
           className="mt-16 bg-slate-50 rounded-2xl p-8 border border-slate-100"
         >
           <h3 className="text-lg font-bold text-[#0a2952] mb-2">Citations</h3>

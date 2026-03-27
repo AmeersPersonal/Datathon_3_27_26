@@ -65,9 +65,9 @@ function Footer() {
 
 export default function App() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-full overflow-x-hidden flex flex-col items-center">
       <Navbar />
-      <main>
+      <main className="w-full mx-auto">
         <Hero />
         <DebtCalculator />
         <BarChartSection />
