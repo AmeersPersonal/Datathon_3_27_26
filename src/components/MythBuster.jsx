@@ -4,50 +4,50 @@ import { RefreshCw } from 'lucide-react';
 
 const cards = [
   {
-    myth: 'Myth: Carrying a balance boosts your credit score.',
-    fact: 'Fact: You never need to carry a balance to build credit. Paying in full each month improves your score while avoiding interest charges entirely.',
-    term: 'Credit Utilization Ratio',
-    icon: '💳',
+    myth: 'Myth: Financial literacy is just about budgeting.',
+    fact: 'Fact: Financial literacy covers navigating complex documents, understanding tenants\' rights, managing credit, accessing benefits, and planning for the future — skills rarely taught in K–12.',
+    term: 'Financial Literacy Scope',
+    icon: '📚',
     color: 'from-blue-600 to-blue-800',
     backColor: 'from-emerald-600 to-emerald-800',
   },
   {
-    myth: 'Myth: Overdraft protection means free money.',
-    fact: 'Fact: Overdraft fees average $35 per transaction. Using a linked account with $0 in it 3× a month costs $1,260/year — more than some credit cards charge in interest!',
-    term: 'Overdraft Fees',
-    icon: '🏦',
+    myth: 'Myth: Financial stress only affects people with low incomes.',
+    fact: 'Fact: 77% of Americans — across all income levels — report feeling anxious about their financial situation. Financial literacy education reduces anxiety at every income level.',
+    term: 'Financial Anxiety',
+    icon: '😰',
     color: 'from-orange-600 to-red-700',
     backColor: 'from-teal-600 to-teal-800',
   },
   {
-    myth: 'Myth: Minimum payments are fine if you\'re tight on cash.',
-    fact: 'Fact: A $5,000 balance at 22% APR with minimum payments takes over 20 years to pay off and costs more than $7,000 in interest.',
-    term: 'Minimum Payment Trap',
-    icon: '⚠️',
+    myth: 'Myth: Young people don\'t need to learn about money yet.',
+    fact: 'Fact: Credit scores and financial decisions made in young adulthood have lifelong consequences. Youth who receive financial education early are far better prepared for economic stability.',
+    term: 'Youth Financial Education',
+    icon: '🎓',
     color: 'from-rose-600 to-pink-800',
     backColor: 'from-violet-600 to-violet-800',
   },
   {
-    myth: 'Myth: Closing old credit cards improves your score.',
-    fact: 'Fact: Closing cards reduces your available credit, which raises your utilization ratio — actually hurting your score. Older accounts also boost your credit history length.',
-    term: 'Credit History Length',
-    icon: '📊',
+    myth: 'Myth: Landlords must always explain lease terms clearly.',
+    fact: 'Fact: Many tenants — especially immigrants — are taken advantage of due to complex documents and limited financial literacy. Knowing your rights is as important as knowing your finances.',
+    term: 'Tenant Rights',
+    icon: '🏠',
     color: 'from-purple-600 to-purple-900',
     backColor: 'from-sky-600 to-sky-800',
   },
   {
-    myth: 'Myth: Debit cards offer the same fraud protection as credit cards.',
-    fact: 'Fact: The Fair Credit Billing Act caps credit card fraud liability at $50 (often $0). Debit card liability can be unlimited if not reported within 60 days.',
-    term: 'Fraud Liability',
-    icon: '🔒',
+    myth: 'Myth: Mental health and finances are separate issues.',
+    fact: 'Fact: 86% of people with mental health issues and debt said their financial situation made their mental health problems worse. Financial wellness directly supports overall wellbeing.',
+    term: 'Money & Mental Health',
+    icon: '🧠',
     color: 'from-slate-600 to-slate-800',
     backColor: 'from-green-600 to-green-800',
   },
   {
-    myth: 'Myth: Having many credit cards is always bad.',
-    fact: 'Fact: Multiple cards can actually lower your utilization ratio and broaden your credit mix — two key scoring factors — as long as you manage them responsibly.',
-    term: 'Credit Mix',
-    icon: '🎯',
+    myth: 'Myth: People can figure out finances on their own from the internet.',
+    fact: 'Fact: 1 in 4 Americans say they don\'t have someone they can ask for trusted financial guidance. Community-based mentors and structured programs make a critical difference.',
+    term: 'Trusted Guidance',
+    icon: '🤝',
     color: 'from-cyan-600 to-blue-700',
     backColor: 'from-amber-600 to-orange-700',
   },
@@ -77,7 +77,7 @@ export default function MythBuster() {
             Myth-Buster Cards
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-3">
-            Tap or hover any card to reveal the financial truth behind common credit myths.
+            Tap or click any card to reveal the truth behind common financial literacy misconceptions.
           </p>
           <div className="inline-flex items-center gap-2 text-sm text-slate-400">
             <RefreshCw size={14} />

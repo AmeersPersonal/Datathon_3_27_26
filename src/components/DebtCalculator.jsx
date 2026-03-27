@@ -1,53 +1,62 @@
-import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { Calculator, TrendingUp, DollarSign, AlertCircle } from 'lucide-react';
+import { Home, HeartPulse, Users, GraduationCap } from 'lucide-react';
 
-function formatCurrency(value) {
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value);
-}
+const analysisCards = [
+  {
+    icon: GraduationCap,
+    color: 'bg-blue-500',
+    tagColor: 'bg-blue-100 text-blue-700',
+    tag: 'Economic Stability',
+    title: 'Financial Literacy & Economic Stability',
+    body: 'Financial literacy is vital for economic stability. According to CNBC.com, "77% of Americans report feeling anxious about their financial situation" and 58% feel that finances control their lives.',
+  },
+  {
+    icon: Home,
+    color: 'bg-emerald-500',
+    tagColor: 'bg-emerald-100 text-emerald-700',
+    tag: 'Neighborhood & Built Environment',
+    title: 'Neighborhoods Shape Financial Opportunity',
+    body: 'Neighborhoods are very impactful on the economics and finances people have and the opportunities available to them. Financial literacy education helps boost financial security across communities.',
+  },
+  {
+    icon: GraduationCap,
+    color: 'bg-purple-500',
+    tagColor: 'bg-purple-100 text-purple-700',
+    tag: 'Education Access & Quality',
+    title: 'Limited Financial Education in Schools',
+    body: 'Education on financial literacy is limited in schools, as shown in the chart below (Figure 1). This gap leaves younger generations relying on the internet rather than structured K–12 programs.',
+  },
+  {
+    icon: HeartPulse,
+    color: 'bg-rose-500',
+    tagColor: 'bg-rose-100 text-rose-700',
+    tag: 'Health Care Access & Quality',
+    title: 'Finances & Mental Health Are Linked',
+    body: 'Treatments and services cost money. A study of 5,500 people by the Money and Mental Health Policy Institute showed that 86% of people with mental health issues and debt said their financial situation made their mental health problems worse.',
+  },
+  {
+    icon: Users,
+    color: 'bg-orange-500',
+    tagColor: 'bg-orange-100 text-orange-700',
+    tag: 'Community Data — Idea #1855',
+    title: 'Tenant Rights & Accessibility',
+    body: 'Main issue: complexity of documents and landlords taking advantage of tenants. Housing and renting is essential for financial/economic stability. Many are taken advantage of due to low financial literacy rates, especially immigrants.',
+  },
+  {
+    icon: Users,
+    color: 'bg-amber-500',
+    tagColor: 'bg-amber-100 text-amber-700',
+    tag: 'Community Data — Idea #556',
+    title: 'Financial Future Readiness for Youth',
+    body: 'Education for youth regarding financial literacy. Credit scores and other financial concepts majorly impact the future. Without education, these unknowns create lasting hardships for young people.',
+  },
+];
 
 export default function DebtCalculator() {
-  const [balance, setBalance] = useState(5000);
-  const [apr, setApr] = useState(22.8);
-  const [monthlyPayment, setMonthlyPayment] = useState(150);
-  const [savingsRate, setSavingsRate] = useState(4.5);
-
-  const calculateCredit = useCallback(() => {
-    const monthlyRate = apr / 100 / 12;
-    let remaining = balance;
-    let totalInterest = 0;
-    let months = 0;
-    const limit = 600; // cap at 50 years
-
-    while (remaining > 0 && months < limit) {
-      const interest = remaining * monthlyRate;
-      totalInterest += interest;
-      remaining = remaining + interest - monthlyPayment;
-      months++;
-      if (monthlyPayment <= interest) {
-        // Never pays off
-        return { months: Infinity, totalInterest: Infinity, totalPaid: Infinity };
-      }
-    }
-    return { months, totalInterest, totalPaid: balance + totalInterest };
-  }, [balance, apr, monthlyPayment]);
-
-  const calculateSavings = useCallback(() => {
-    const monthlyRate = savingsRate / 100 / 12;
-    const months = 36; // compare over same period
-    // Future value of monthly deposits
-    const fv = monthlyPayment * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
-    return { months, total: fv, interest: fv - monthlyPayment * months };
-  }, [monthlyPayment, savingsRate]);
-
-  const credit = calculateCredit();
-  const savings = calculateSavings();
-  const neverPaysOff = credit.months === Infinity;
-
   return (
     <section id="problem" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        {/* Section header */}
+        {/* Executive Summary */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,171 +65,46 @@ export default function DebtCalculator() {
           className="text-center mb-16"
         >
           <span className="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-emerald-600 uppercase bg-emerald-50 rounded-full mb-4">
-            The Problem
+            Executive Summary
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-[#0a2952] mb-4">
-            Debt vs. Savings Calculator
+          <h2 className="text-4xl md:text-5xl font-black text-[#0a2952] mb-6">
+            Why Financial Literacy Matters
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            See how the same monthly payment compares when used to pay off credit card debt
-            versus building savings. The math might surprise you.
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            After analyzing data from the past 3 years, we noticed a trend between proposals
+            asking for solutions to financial issues in the community, and a need for financial
+            awareness resources. Focusing on the education of economic stability is about more than
+            giving people a pamphlet — it&apos;s about helping our constituents navigate complex
+            documents and procedures, offering a comprehensive and easy-to-access point of reference.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-10 items-start">
-          {/* Controls */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="bg-slate-50 rounded-2xl p-8 border border-slate-200"
-          >
-            <h3 className="text-xl font-bold text-[#0a2952] mb-6 flex items-center gap-2">
-              <Calculator size={20} className="text-emerald-500" />
-              Adjust Your Numbers
-            </h3>
-
-            {[
-              {
-                label: 'Credit Card Balance',
-                value: balance,
-                setter: setBalance,
-                min: 500,
-                max: 30000,
-                step: 500,
-                format: formatCurrency,
-                color: 'text-red-500',
-              },
-              {
-                label: 'Annual Percentage Rate (APR)',
-                value: apr,
-                setter: setApr,
-                min: 10,
-                max: 35,
-                step: 0.5,
-                format: (v) => `${v}%`,
-                color: 'text-orange-500',
-              },
-              {
-                label: 'Monthly Payment / Deposit',
-                value: monthlyPayment,
-                setter: setMonthlyPayment,
-                min: 50,
-                max: 1000,
-                step: 25,
-                format: formatCurrency,
-                color: 'text-blue-600',
-              },
-              {
-                label: 'Savings APY',
-                value: savingsRate,
-                setter: setSavingsRate,
-                min: 1,
-                max: 8,
-                step: 0.25,
-                format: (v) => `${v}%`,
-                color: 'text-emerald-600',
-              },
-            ].map(({ label, value, setter, min, max, step, format, color }) => (
-              <div key={label} className="mb-6">
-                <div className="flex justify-between mb-2">
-                  <label className="text-sm font-medium text-slate-700">{label}</label>
-                  <span className={`text-sm font-bold ${color}`}>{format(value)}</span>
+        {/* Analysis Cards */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {analysisCards.map((card, index) => {
+            const Icon = card.icon;
+            return (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col"
+              >
+                <div className={`w-11 h-11 ${card.color} rounded-xl flex items-center justify-center mb-4 flex-shrink-0`}>
+                  <Icon size={20} className="text-white" />
                 </div>
-                <input
-                  type="range"
-                  min={min}
-                  max={max}
-                  step={step}
-                  value={value}
-                  onChange={(e) => setter(Number(e.target.value))}
-                  className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#1e4d8c]"
-                />
-                <div className="flex justify-between text-xs text-slate-400 mt-1">
-                  <span>{format(min)}</span>
-                  <span>{format(max)}</span>
-                </div>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Results */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex flex-col gap-6"
-          >
-            {/* Credit card result */}
-            <div className="rounded-2xl p-6 bg-gradient-to-br from-red-50 to-orange-50 border border-red-100">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="p-2 bg-red-100 rounded-lg">
-                  <AlertCircle size={18} className="text-red-500" />
-                </div>
-                <h4 className="font-bold text-red-700">Credit Card Path</h4>
-              </div>
-
-              {neverPaysOff ? (
-                <div className="text-red-600 font-semibold text-sm bg-red-100 p-3 rounded-lg">
-                  ⚠️ Your monthly payment ({formatCurrency(monthlyPayment)}) is less than the monthly
-                  interest — you will <strong>never</strong> pay off this debt at this rate!
-                </div>
-              ) : (
-                <div className="space-y-3">
-                  <ResultRow label="Time to pay off" value={`${credit.months} months (${(credit.months / 12).toFixed(1)} yrs)`} color="text-red-700" />
-                  <ResultRow label="Total interest paid" value={formatCurrency(credit.totalInterest)} color="text-red-700" />
-                  <ResultRow label="Total amount paid" value={formatCurrency(credit.totalPaid)} color="text-red-800" bold />
-                </div>
-              )}
-            </div>
-
-            {/* Savings result */}
-            <div className="rounded-2xl p-6 bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-100">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="p-2 bg-emerald-100 rounded-lg">
-                  <TrendingUp size={18} className="text-emerald-600" />
-                </div>
-                <h4 className="font-bold text-emerald-700">Debit / Savings Path</h4>
-              </div>
-              <p className="text-xs text-slate-500 mb-3">
-                Depositing {formatCurrency(monthlyPayment)}/mo at {savingsRate}% APY for 36 months:
-              </p>
-              <div className="space-y-3">
-                <ResultRow label="Total saved" value={formatCurrency(savings.total)} color="text-emerald-700" bold />
-                <ResultRow label="Interest earned" value={formatCurrency(savings.interest)} color="text-emerald-600" />
-              </div>
-            </div>
-
-            {/* Difference callout */}
-            {!neverPaysOff && (
-              <div className="rounded-2xl p-5 bg-[#0a2952] text-white">
-                <div className="flex items-center gap-2 mb-2">
-                  <DollarSign size={18} className="text-emerald-400" />
-                  <span className="font-bold text-emerald-400">The True Cost of Credit</span>
-                </div>
-                <p className="text-sm text-blue-200">
-                  Over this period, credit costs you{' '}
-                  <span className="font-bold text-white">{formatCurrency(credit.totalInterest)}</span>{' '}
-                  in interest alone — money that could instead grow to{' '}
-                  <span className="font-bold text-emerald-400">{formatCurrency(savings.total)}</span>{' '}
-                  in savings.
-                </p>
-              </div>
-            )}
-          </motion.div>
+                <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${card.tagColor} w-fit mb-3`}>
+                  {card.tag}
+                </span>
+                <h3 className="font-bold text-[#0a2952] mb-2 text-base">{card.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed flex-grow">{card.body}</p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
-  );
-}
-
-function ResultRow({ label, value, color, bold }) {
-  return (
-    <div className="flex justify-between items-center">
-      <span className="text-sm text-slate-600">{label}</span>
-      <span className={`text-sm ${color} ${bold ? 'font-bold text-base' : 'font-medium'}`}>{value}</span>
-    </div>
   );
 }
