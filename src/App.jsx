@@ -7,7 +7,7 @@ import ActionSection from './components/ActionSection';
 
 function Navbar() {
   const sections = [
-    { href: '#problem', label: 'Calculator' },
+    { href: '#problem', label: 'Analysis' },
     { href: '#data', label: 'Data' },
     { href: '#action', label: 'Resources' },
   ];
@@ -16,7 +16,7 @@ function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a2952]/90 backdrop-blur-md border-b border-white/10">
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 text-white font-black text-lg">
-          <span className="text-emerald-400">💰</span> FinanceStory NYC
+          <span className="text-emerald-400">📚</span> FinLit NYC
         </a>
         <ul className="hidden md:flex items-center gap-6">
           {sections.map(({ href, label }) => (
@@ -48,14 +48,14 @@ function Footer() {
     <footer className="bg-[#0a2952] text-blue-300 py-10">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <div className="text-white font-black text-lg mb-2">
-          <span className="text-emerald-400">💰</span> FinanceStory NYC
+          <span className="text-emerald-400">📚</span> FinLit NYC
         </div>
         <p className="text-sm text-blue-400 mb-4">
-          A data story about financial literacy in New York City.
+          Driving financial literacy through the education system.
           Built for the 2026 Datathon.
         </p>
         <p className="text-xs text-blue-500">
-          Data is representative / illustrative, modeled after the NYC People&apos;s Money dataset.
+          Data sourced from Pew Research Center, CNBC, Annuity.org, and NYC community proposals.
           Not financial advice. © 2026
         </p>
       </div>

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { TrendingDown, ChevronDown } from 'lucide-react';
+import { BookOpen, ChevronDown } from 'lucide-react';
 
 export default function Hero() {
   const scrollToExplore = () => {
@@ -32,8 +32,8 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500 bg-opacity-20 border border-emerald-500 border-opacity-40 text-emerald-400 text-sm font-medium mb-8"
         >
-          <TrendingDown size={16} />
-          NYC People&apos;s Money — Financial Literacy Data Story
+          <BookOpen size={16} />
+          NYC 2026 Datathon — Financial Literacy Data Story
         </motion.div>
 
         {/* Main headline */}
@@ -43,12 +43,12 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-5xl md:text-7xl font-black text-white leading-tight mb-6"
         >
-          The{' '}
+          Driving{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-300">
-            Invisible Cost
+            Financial Literacy
           </span>
           <br />
-          of Credit
+          Through Education
         </motion.h1>
 
         {/* Subheadline */}
@@ -58,8 +58,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.25 }}
           className="text-xl md:text-2xl text-blue-200 max-w-3xl mx-auto mb-12 leading-relaxed"
         >
-          How credit card debt silently drains NYC neighborhoods — and what data reveals
-          about the growing divide between credit users and savers.
+          After analyzing data from the past 3 years, we noticed a trend between proposals asking
+          for solutions to financial issues and a need in communities for financial awareness resources.
         </motion.p>
 
         {/* Stats row */}
@@ -70,13 +70,13 @@ export default function Hero() {
           className="flex flex-wrap justify-center gap-8 mb-14"
         >
           {[
-            { value: '$6,360', label: 'Avg. Credit Card Debt per Household' },
-            { value: '22.8%', label: 'Avg. Credit Card APR (2025)' },
-            { value: '34%', label: 'NYC Residents with High Utilization' },
+            { value: '77%', label: 'Americans Feel Anxious About Their Finances' },
+            { value: '58%', label: 'Say Finances Control Their Lives' },
+            { value: '86%', label: 'With Mental Health Issues & Debt Feel Finances Worsen It' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-3xl md:text-4xl font-black text-emerald-400">{stat.value}</div>
-              <div className="text-sm text-blue-300 mt-1 max-w-[140px] mx-auto">{stat.label}</div>
+              <div className="text-sm text-blue-300 mt-1 max-w-[160px] mx-auto">{stat.label}</div>
             </div>
           ))}
         </motion.div>
